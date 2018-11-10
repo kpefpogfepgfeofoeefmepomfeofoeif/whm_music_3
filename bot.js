@@ -20,7 +20,7 @@ const gif = require("gif-search");
 
 const client = new Discord.Client({disableEveryone: true});
 
-const prefix = "2";
+const prefix = "3";
 /////////////////////////
 ////////////////////////
 
@@ -313,7 +313,7 @@ function play(guild, song) {
 
 
 client.on('message', message => {
-    if (message.content === 'help') {
+    if (message.content === '1help') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
         .setDescription('**برفكس البوت (!)**')
@@ -352,5 +352,7 @@ client.on('ready', () => {
 client.user.setGame(`Type 3help`,"http://twitch.tv/whm")
 client.user.setStatus("dnd")
 });
+
+client.on('ready',async () => { client.channels.find(ch => ch.id === "488728589735428096" && ch.type === 'voice').join(); }); 
 
 client.login(process.env.BOT_TOKEN);
